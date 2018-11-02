@@ -39,6 +39,8 @@ div, ul {
 
 .card {
   padding: 15px;
+  overflow-y: auto;
+  max-height: 300px;
 }
 
 .page-header {

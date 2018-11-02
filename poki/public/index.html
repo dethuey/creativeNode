@@ -30,7 +30,7 @@
 
   <div id='app' ng-app='app' ng-controller='mainCtrl'>
 
-    <div class="container" style="background: rgba(255, 255, 255, 0.75); border-radius: 10px; padding: 20px;">
+    <div class="container" style="background: rgba(255, 255, 255, 0.75); border-radius: 10px; padding: 20px; background-size: cover;">
       <div class="row">
 
         <div class="col-sm-4">
@@ -40,7 +40,7 @@
           <h3>Enter a funny!</h3>
           <h5>If it needs an answer, enter that too.</h5>
           <form id="newPoki" ng-submit="addPoki()">
-            <input type="text" ng-model="text" value=""><br>
+            <input type="text" ng-model="text" autocomplete="off" pattern=".{3,}"   required title="3 characters minimum"><br>
             <input type="submit" value="Submit Funny">
           </form>
         </div>
