@@ -44,10 +44,10 @@ function mainCtrl($scope, pokemonFetcher, $http) {
 
   }
   $scope.removePoki = function(y) {
-    var formData = { avatarUrl: $scope.index };
+    var formData = { avatarUrl: $scope.poke };
     console.log(formData);
     var pokiURL = 'pokemon';
-    $scope.pokemon.splice(y, 1);
+    //$scope.pokemon.splice(y, 1);
     $http({
       url: pokiURL,
       method: "DELETE",
@@ -57,6 +57,6 @@ function mainCtrl($scope, pokemonFetcher, $http) {
     }).error(function(data, status, headers, config) {
       console.log("Delete failed");
     });
-    //location.reload();
+    location.reload();
   };
 }

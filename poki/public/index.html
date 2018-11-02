@@ -22,7 +22,7 @@
   Your browser does not support the audio element.
 </audio>
 
-  <div class="jumbotron jumbotron-fluid text-center bg-danger text-white">
+  <div class="page-header text-center bg-danger text-white">
     <div class="container">
       <h1>Lets Laugh Together!</h1>
     </div>
@@ -33,36 +33,35 @@
     <div class="container" style="background: rgba(255, 255, 255, 0.75); border-radius: 10px; padding: 20px;">
       <div class="row">
 
-        <div class="col-sm-3">
+        <div class="col-sm-4">
           <h3>Hello there!</h3>
-          <p>Just put in some<br>jokes you like.<br>Everyone else can<br>see them too!</p>
-          <p>I suggest just copy-pasting them into the input bar. It's easier than typing them out.</p>
-        </div>
-
-        <div class="col-sm-3">
-          <h3>Enter a joke!</h3>
+          <p>Just put in something<br>funny that you like.<br>Everyone else can<br>see it too!</p>
+          <p>(I suggest just copy-pasting it into the input bar. It's easier than typing it out.)</p>
+          <h3>Enter a funny!</h3>
           <h5>If it needs an answer, enter that too.</h5>
           <form id="newPoki" ng-submit="addPoki()">
             <input type="text" ng-model="text" value=""><br>
-            <input type="submit" value="Submit Joke">
+            <input type="submit" value="Submit Funny">
           </form>
         </div>
 
-        <div class="col-sm-6">
-          <h4>Jokes:</h4>
-          <div style="overflow-y: auto; height: 300px">
-            <div class="card">
-              <ol ng-if='pokemon.length'>
-                <li ng-repeat='p in pokemon' class='pokemon'>
-                  <div class="avatar">
+        <div class="col-sm-8">
+          <h4>Funnies:</h4>
+          <div style="overflow-y: auto; height: 400px">
+            <ol ng-if='pokemon.length'>
+              <li ng-repeat='p in pokemon' class='pokemon'>
+                <div class="avatar">
+                  <div class="card">
                     <h3>
                       {{p.avatarUrl}}
-                      <!--<button type="button" class="btn btn-outline-success btn-sm" style="float: right" ng-click="removePoki($index)">Done!</button>-->
+                      <!--<form id="delPoki" ng-submit="removePoki($index)">
+                        <input type="submit" ng-model="poke" value="Remove Funny">
+                      </form>-->
                     </h3>
                   </div>
-                </li>
-              </ol>
-            </div>
+                </div>
+              </li>
+            </ol>
           </div>
         </div>
 

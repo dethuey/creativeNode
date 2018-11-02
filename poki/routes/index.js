@@ -7,14 +7,14 @@ router.get('/', function(req, res) {
   res.sendFile('index.html', { root: 'public' });
 });
 var pokemon = [{
-    avatarUrl: 'Don\'t interrupt someone working intently on a puzzle. Chances are, you\'ll hear some crosswords.'
+    avatarUrl: 'How many computer programmers does it take to change a light bulb? None, that\'s a hardware problem.'
   },
   {
-    avatarUrl: 'Q. Why was King Arthur\'s army too tired to fight? A. It had too many sleepless knights.'
+    avatarUrl: 'A programmer is at work when his wife calls and asks him to go to the store. She says she needs a gallon of milk, and if they have fresh eggs, buy a dozen. He comes home with 12 gallons of milk.'
 
   },
   {
-    avatarUrl: 'I was going to make myself a belt made out of watches, but then I realized it would be a waist of time.'
+    avatarUrl: 'Q. What do you call 8 Hobbits? A. A Hobbyte.'
   }
 ];
 
@@ -37,7 +37,7 @@ router.post('/pokemon', function(req, res) {
 
 router.delete('/pokemon', function(req, res) {
   console.log("In Pokemon Delete");
-  pokemon.remove({ avatarUrl: req.pokemon }, function(err) {
+  pokemon.delete({ avatarUrl: req.pokemon }, function(err) {
     if (!err) {
       console.log("Item deleted!");
     }
