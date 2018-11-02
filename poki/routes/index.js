@@ -6,25 +6,15 @@ var router = express.Router();
 router.get('/', function(req, res) {
   res.sendFile('index.html', { root: 'public' });
 });
-var pokemon = [
-  {
-    avatarUrl: 'http://rs795.pbsrc.com/albums/yy232/PixKaruumi/Pokemon%20Pixels/Pikachu_Icon__free__by_Aminako.gif~c200'
+var pokemon = [{
+    avatarUrl: 'Don\'t interrupt someone working intently on a puzzle. Chances are, you\'ll hear some crosswords.'
   },
   {
-    avatarUrl: 'http://24.media.tumblr.com/tumblr_ma0tijLFPg1rfjowdo1_500.gif'
+    avatarUrl: 'Q. Why was King Arthur\'s army too tired to fight? A. It had too many sleepless knights.'
 
   },
   {
-    avatarUrl: 'http://media3.giphy.com/media/J5JrPT8r1xGda/giphy.gif'
-  },
-  {
-    avatarUrl: 'http://rs1169.pbsrc.com/albums/r511/nthndo/tumblr_ljsx6dPMNm1qii50go1_400.gif~c200'
-  },
-  {
-    avatarUrl: 'http://media1.giphy.com/media/pTh2K2xTJ1nag/giphy.gif'
-  },
-  {
-    avatarUrl: 'https://s-media-cache-ak0.pinimg.com/originals/7e/3b/67/7e3b67c53469cc4302035be70a7f2d60.gif'
+    avatarUrl: 'I was going to make myself a belt made out of watches, but then I realized it would be a waist of time.'
   }
 ];
 
@@ -33,11 +23,43 @@ router.get('/pokemon', function(req, res) {
   res.send(pokemon);
 });
 
+router.get('/', function(req, res) {
+  console.log("In Pokemon");
+  res.send(pokemon);
+});
+
 router.post('/pokemon', function(req, res) {
-    console.log("In Pokemon Post");
-    console.log(req.body);
-    pokemon.push(req.body);
-    res.end('{"success" : "Updated Successfully", "status" : 200}');
-}); 
+  console.log("In Pokemon Post");
+  console.log(req.body);
+  pokemon.push(req.body);
+  res.end('{"success" : "Updated Successfully", "status" : 200}');
+});
+
+router.delete('/pokemon', function(req, res) {
+  console.log("In Pokemon Delete");
+  pokemon.remove({ avatarUrl: req.pokemon }, function(err) {
+    if (!err) {
+      console.log("Item deleted!");
+    }
+    else {
+      console.log("Item not deleted!");
+    }
+  });
+});
 
 module.exports = router;
+//module.exports.delete = del;
+
+/*
+apiRouter.delete(/users/:user_id', function(req, res) {
+
+    User.Remove({ id: req.params.user_id }, function(err) {
+        if (!err) {
+            return res.send('User deleted!');
+        } else {
+            return res.send('Error deleting user!');
+        }
+    });
+
+});
+*/
